@@ -9,21 +9,21 @@ public class Day3 implements Day {
     final char tree = '#';
 
     @Override
-    public String part1() throws IOException {
+    public Object part1() throws IOException {
         final String[] ride = loadDayStrings(3);
 
-        return crashes(ride, 3,1) + "";
+        return crashes(ride, 3,1);
     }
 
     @Override
-    public String part2() throws IOException {
+    public Object part2() throws IOException {
         final String[] ride = loadDayStrings(3);
 
         return crashes(ride, 1,1)
                 * crashes(ride, 3, 1)
                 * crashes(ride, 5, 1)
                 * crashes(ride, 7, 1)
-                * crashes(ride, 1, 2) + "";
+                * crashes(ride, 1, 2);
 
     }
 

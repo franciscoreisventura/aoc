@@ -8,8 +8,8 @@ import java.util.Arrays;
 
 public interface Day {
 
-    String part1() throws IOException;
-    String part2() throws IOException;
+    Object part1() throws IOException;
+    Object part2() throws IOException;
 
     default long[] loadDayNumbers(int day) throws IOException {
         return Arrays.stream(day(day).split(System.lineSeparator())).mapToLong(Long::parseLong).toArray();

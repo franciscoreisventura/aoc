@@ -8,7 +8,7 @@ public class Day2 implements Day {
 
 
     @Override
-    public String part1() throws IOException {
+    public Object part1() throws IOException {
         final String[] passwordObjectList = loadDayStrings(2);
         int valid = 0;
 
@@ -17,11 +17,11 @@ public class Day2 implements Day {
                 valid++;
             }
         }
-        return valid + "";
+        return valid;
     }
 
     @Override
-    public String part2() throws IOException {
+    public Object part2() throws IOException {
         final String[] passwordObjectList = loadDayStrings(2);
         int valid = 0;
 
@@ -30,7 +30,7 @@ public class Day2 implements Day {
                 valid++;
             }
         }
-        return valid + "";
+        return valid;
     }
 
     private boolean isValidPassword(String passwordObject) {

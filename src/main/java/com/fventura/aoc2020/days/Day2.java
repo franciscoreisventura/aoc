@@ -6,10 +6,14 @@ import com.fventura.aoc2020.common.Day;
 
 public class Day2 implements Day {
 
+    final String[] passwordObjectList;
+
+    public Day2 () {
+        passwordObjectList = loadDayStrings(2);
+    }
 
     @Override
-    public Object part1() throws IOException {
-        final String[] passwordObjectList = loadDayStrings(2);
+    public Object part1() {
         int valid = 0;
 
         for (final String passwordObject : passwordObjectList) {
@@ -21,8 +25,7 @@ public class Day2 implements Day {
     }
 
     @Override
-    public Object part2() throws IOException {
-        final String[] passwordObjectList = loadDayStrings(2);
+    public Object part2() {
         int valid = 0;
 
         for (final String passwordObject : passwordObjectList) {

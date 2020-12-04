@@ -8,22 +8,32 @@ import java.util.Arrays;
 
 public interface Day {
 
-    Object part1() throws IOException;
-    Object part2() throws IOException;
+    Object part1();
 
-    default long[] loadDayNumbers(int day) throws IOException {
+    Object part2();
+
+    default long[] loadDayNumbers(int day) {
         return Arrays.stream(day(day).split(System.lineSeparator())).mapToLong(Long::parseLong).toArray();
     }
 
-    default String[] loadDayStrings(int day) throws IOException {
+    default String[] loadDayStrings(int day) {
         return Arrays.stream(day(day).split(System.lineSeparator())).toArray(String[]::new);
     }
 
-    default String day(int day) throws IOException {
+    default String[] loadDayStrings(int day, String regex) {
+        return Arrays.stream(day(day).split(regex)).toArray(String[]::new);
+    }
+
+    default String day(int day) {
         return getResourceAsString("day" + day + ".txt");
     }
 
-    default String getResourceAsString(String resource) throws IOException {
-        return readFileToString(new File(Day.class.getClassLoader().getResource(resource).getFile()), "UTF-8");
+    default String getResourceAsString(String resource) {
+        try {
+            return readFileToString(new File(Day.class.getClassLoader().getResource(resource).getFile()), "UTF-8");
+        } catch (final IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

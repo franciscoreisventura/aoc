@@ -36,4 +36,10 @@ public interface Day {
         }
         return null;
     }
+
+    default void printArray(long[] array) {
+        Arrays.stream(array).forEach(a -> System.out.print(a + " "));
+        System.out.println();
+    }
+
 }

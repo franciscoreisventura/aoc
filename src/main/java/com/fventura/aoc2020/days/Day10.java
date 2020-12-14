@@ -13,11 +13,11 @@ public class Day10 implements Day {
 
     public Day10() {
         adapters = loadDayNumbers(10);
+        Arrays.sort(adapters);
         multiplier.put(1, 1);
         multiplier.put(2, 2);
         multiplier.put(3, 4);
         multiplier.put(4, 7);
-        Arrays.sort(adapters);
     }
 
     @Override
@@ -44,20 +44,7 @@ public class Day10 implements Day {
     }
 
     private int getMultiplier(int index) {
-        if (!multiplier.containsKey(index)) {
-            int newMultiplier = calculateMultiplier(index);
-            multiplier.put(index, newMultiplier);
-        }
         return multiplier.get(index);
-    }
-
-    private int calculateMultiplier(int index) {
-        if (index % 2 == 0) {
-            return (int) Math.pow(2, index - 1) - 1;
-        }
-        else {
-            return (int) Math.pow(2, index - 1);
-        }
     }
 
     final long[] getJoltDifferences(final long[] adapters) {

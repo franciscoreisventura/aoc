@@ -45,6 +45,39 @@ public class Day11 implements Day {
         return occupiedSeats;
     }
 
+    @Override
+    public Object part2() {
+        long occupiedSeats = 0;
+        String[] newSeats = Arrays.copyOf(seats, seats.length);
+        String[] lastRoundSeats = Arrays.copyOf(newSeats, newSeats.length);
+        boolean changed;
+        do {
+            changed = false;
+            for (int i = 0; i < newSeats.length; i++) {
+                for (int j = 0; j < newSeats[i].length(); j++) {
+                    char c = newSeats[i].charAt(j);
+                    if (c == '.') {
+                        continue;
+                    }
+                    StringBuilder builder = new StringBuilder(newSeats[i]);
+                    int surroundingBusySeats = getSurroundingBusySeatsPart2(lastRoundSeats, i, j);
+                    if (c == 'L' && surroundingBusySeats == 0) {
+                        builder.setCharAt(j, '#');
+                        occupiedSeats++;
+                        changed = true;
+                    } else if (c == '#' && surroundingBusySeats >= 5) {
+                        builder.setCharAt(j, 'L');
+                        occupiedSeats--;
+                        changed = true;
+                    }
+                    newSeats[i] = builder.toString();
+                }
+            }
+            lastRoundSeats = Arrays.copyOf(newSeats, newSeats.length);
+        } while (changed);
+        return occupiedSeats;
+    }
+
     private int getSurroundingBusySeats(String[] seats, int i, int j) {
         int busySeats = 0;
         if (j > 0) {
@@ -78,40 +111,6 @@ public class Day11 implements Day {
             busySeats++;
         }
         return busySeats;
-    }
-
-    @Override
-    public Object part2() {
-        long occupiedSeats = 0;
-        String[] newSeats = Arrays.copyOf(seats, seats.length);
-        String[] lastRoundSeats = Arrays.copyOf(newSeats, newSeats.length);
-        boolean changed;
-        do {
-            printArray(newSeats);
-            changed = false;
-            for (int i = 0; i < newSeats.length; i++) {
-                for (int j = 0; j < newSeats[i].length(); j++) {
-                    char c = newSeats[i].charAt(j);
-                    if (c == '.') {
-                        continue;
-                    }
-                    StringBuilder builder = new StringBuilder(newSeats[i]);
-                    int surroundingBusySeats = getSurroundingBusySeatsPart2(lastRoundSeats, i, j);
-                    if (c == 'L' && surroundingBusySeats == 0) {
-                        builder.setCharAt(j, '#');
-                        occupiedSeats++;
-                        changed = true;
-                    } else if (c == '#' && surroundingBusySeats >= 5) {
-                        builder.setCharAt(j, 'L');
-                        occupiedSeats--;
-                        changed = true;
-                    }
-                    newSeats[i] = builder.toString();
-                }
-            }
-            lastRoundSeats = Arrays.copyOf(newSeats, newSeats.length);
-        } while (changed);
-        return occupiedSeats;
     }
 
     private int getSurroundingBusySeatsPart2(String[] seats, int i, int j) {

@@ -13,7 +13,11 @@ public interface Day {
     Object part2();
 
     default long[] loadDayNumbers(int day) {
-        return Arrays.stream(day(day).split(System.lineSeparator())).mapToLong(Long::parseLong).toArray();
+        return loadDayNumbers(day, System.lineSeparator());
+    }
+
+    default long[] loadDayNumbers(int day, String regex) {
+        return Arrays.stream(day(day).split(regex)).mapToLong(Long::parseLong).toArray();
     }
 
     default String[] loadDayStrings(int day) {

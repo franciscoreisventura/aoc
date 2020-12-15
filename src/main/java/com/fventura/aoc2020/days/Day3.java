@@ -1,7 +1,5 @@
 package com.fventura.aoc2020.days;
 
-import java.io.IOException;
-
 import com.fventura.aoc2020.common.Day;
 
 public class Day3 implements Day {

@@ -1,8 +1,5 @@
 package com.fventura.aoc2020.days;
 
-import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 

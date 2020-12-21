@@ -8,7 +8,7 @@ import com.fventura.aoc2020.common.Day;
 public class Main {
     public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, IOException {
         final long startTime = System.nanoTime();
-        for (int day = 1; day <= 17; day++) {
+        for (int day = 1; day <= 18; day++) {
             System.out.println("Day " + day + ": ");
             Day instance = (Day) Class.forName("com.fventura.aoc2020.days.Day" + day).getDeclaredConstructor().newInstance();
             System.out.println(instance.part1());

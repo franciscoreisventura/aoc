@@ -64,7 +64,6 @@ public class Day17 implements Day {
                 } else {
                     newCubes.remove(cube);
                 }
-                ;
             }
             onCubes = newCubes;
         }
@@ -98,7 +97,6 @@ public class Day17 implements Day {
                 } else {
                     newCubes.remove(cube);
                 }
-                ;
             }
             onCubes4d = newCubes;
         }

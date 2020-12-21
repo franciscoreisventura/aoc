@@ -2,9 +2,9 @@ package com.fventura.aoc2020.days;
 
 import com.fventura.aoc2020.common.Day;
 
-public class DayX implements Day {
+public class Day23 implements Day {
 
-    public DayX() {
+    public Day23() {
     }
 
     @Override
